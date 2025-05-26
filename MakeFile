@@ -1,0 +1,20 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Iinclude
+
+SRC = src/main.cpp \
+      src/process_scheduler.cpp \
+      src/memory_manager.cpp \
+      src/virtual_file_system.cpp \
+      src/system_state.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+TARGET = ossim
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJ)
+
+clean:
+	rm -f $(OBJ) $(TARGET)
